@@ -34,7 +34,7 @@ public class GeneradorInformeClientes {
             parametro.put("titulo", "LISTADO DE CLIENTES");
             parametro.put("logo", logo);
             parametro.put("torre", torre);
-            parametro.put("SUBREPORT_DIR", "\\T5_P1\\T5_P1\\");
+            //parametro.put("SUBREPORT_DIR", "\\T5_P1\\T5_P1\\");
             
             JRDataSource dataSource = new JRBeanArrayDataSource(listaClientes.toArray());
             String report = "T5_P1 Facturas.jasper";
