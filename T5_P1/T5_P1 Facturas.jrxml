@@ -34,6 +34,9 @@
 	</title>
 	<columnHeader>
 		<band height="23" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="23" backcolor="#FFCCCC" uuid="34a45606-b7fc-499b-b62b-e79f5f7ebc02"/>
+			</rectangle>
 			<staticText>
 				<reportElement x="0" y="0" width="100" height="20" uuid="8808a11d-4662-4478-b321-ed347e6fd9d2"/>
 				<text><![CDATA[firstname]]></text>
@@ -49,7 +52,12 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="123" splitType="Stretch">
+		<band height="65" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="65" backcolor="#CCCCFF" uuid="dc6db42b-cd96-4fdd-912c-e7625fa05b0d">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
 			<textField>
 				<reportElement x="0" y="0" width="100" height="20" uuid="32e8da71-af9e-4313-85a0-7d10ce48b32d"/>
 				<textFieldExpression><![CDATA[$F{firstname}]]></textFieldExpression>
@@ -63,7 +71,7 @@
 				<textFieldExpression><![CDATA[$F{street}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="0" y="20" width="802" height="100" uuid="178e347f-3f1b-4ee1-91d5-3e6cf356bfb9"/>
+				<reportElement x="0" y="20" width="802" height="45" uuid="178e347f-3f1b-4ee1-91d5-3e6cf356bfb9"/>
 				<subreportParameter name="SUBREPORT_DATA_SOURCE">
 					<subreportParameterExpression><![CDATA[$F{documentCollection}]]></subreportParameterExpression>
 				</subreportParameter>
