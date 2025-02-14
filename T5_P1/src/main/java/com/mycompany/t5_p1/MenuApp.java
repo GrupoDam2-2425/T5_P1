@@ -4,19 +4,22 @@
  */
 package com.mycompany.t5_p1;
 
+import com.mycompany.t5_p1.controlador.GeneradorVentasTotales;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import java.awt.Color;
+import java.util.List;
 
 /**
  *
  * @author Juanfran
  */
 public class MenuApp extends javax.swing.JFrame {
+    
 
-    /**
-     * Creates new form MenuApp
-     */
     public MenuApp() {
         initComponents();
+        setLocationRelativeTo(null);
         this.setBackground(Color.RED);
     }
 
@@ -119,7 +122,9 @@ public class MenuApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiFacturasClienteActionPerformed
 
     private void jmiVentasTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVentasTotalesActionPerformed
-        // TODO add your handling code here:
+        ClaseGenerada claseGenerada = new ClaseGenerada(0, "", 0, 0, 0L);
+        List<ClaseGenerada> listaGenerada = claseGenerada.conseguirDatos();
+        GeneradorVentasTotales.leerInforme(listaGenerada);
     }//GEN-LAST:event_jmiVentasTotalesActionPerformed
 
     /**
@@ -152,7 +157,9 @@ public class MenuApp extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuApp().setVisible(true);
+                MenuApp menu = new MenuApp();
+                menu.setLocationRelativeTo(null);
+                menu.setVisible(true);
             }
         });
     }

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="T5_Ventas_Totales" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fbcb6e7f-7ad6-432f-a531-863ab5d66e31">
+	<property name="ireport.zoom" value="1.210000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="LOGO" class="java.io.InputStream"/>
+	<parameter name="FECHA" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[SELECT D.TOTAL, T.ID, T.NAME, P.QUANTITY, P.PRICE
+FROM
+    POSITIONS P
+INNER JOIN
+    PRODUCT T ON T.ID = P.PRODUCTID
+INNER JOIN
+    DOCUMENT D ON D.ID = P.DOCUMENTID;]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="QUANTITY" class="java.lang.Integer"/>
+	<field name="PRICE" class="java.lang.Double"/>
+	<variable name="VENTA_TOTAL" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{QUANTITY} * $F{PRICE}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="94" height="78" uuid="47b40094-8495-4df3-8181-5c0e11586f5b"/>
+				<imageExpression><![CDATA[$P{LOGO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="94" y="0" width="461" height="48" forecolor="#03A9F4" uuid="d78863f8-4947-4fc7-895a-038a16da8d42"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Yu Gothic UI" size="32"/>
+				</textElement>
+				<text><![CDATA[VENTAS TOTALES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="94" y="48" width="461" height="30" uuid="6de0d08b-9096-4878-98c8-ddfb54bc2a7b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Yu Gothic UI" size="12"/>
+				</textElement>
+				<text><![CDATA[En este informe se muestran las ventas totales de cada uno de nuestros productos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="229" height="35" uuid="ad78b0e9-251f-4f0e-a415-05c898d850da"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Yu Gothic UI" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="83" height="20" forecolor="#03A9F4" uuid="2c2a0f2c-91ac-4be9-876e-dfd519310193"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Yu Gothic UI" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="0" width="146" height="20" forecolor="#03A9F4" uuid="fc8cab87-c8bb-46e8-882e-5167bf612e45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Yu Gothic UI" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="229" y="0" width="115" height="20" forecolor="#03A9F4" uuid="64cef63d-4636-4153-b5a3-1af93566238e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Yu Gothic UI" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="0" width="111" height="20" forecolor="#03A9F4" uuid="aec3453c-6733-4d40-bf59-f2e524660043"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Yu Gothic UI" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="0" width="100" height="20" forecolor="#03A9F4" uuid="d2d5bd40-82c2-429a-b993-71b79754c486"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Yu Gothic UI" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VENTA  TOTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="20" forecolor="#E1F5FE" backcolor="#E1F5FE" uuid="c6b3b6e2-b585-4796-bdae-5e6f5ec41eee">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="83" y="0" width="146" height="20" uuid="6440c1d3-4969-4ab9-9d46-8d6de93c34e5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="0" width="111" height="20" uuid="e5ce619f-dabc-4757-86e2-8368e01b8310"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PRICE}+"€"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="0" width="115" height="20" uuid="fc2754d6-5dde-4fda-beec-2c310e0c6cb5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{QUANTITY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="85ec130d-f5cf-4a49-b37c-c4a4807f528a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[String.format("%.2f", $V{VENTA_TOTAL})+"€"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="ca3fcd25-bbad-40df-af14-a6a1682dbda1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="54" uuid="6eb84f2e-df87-4feb-85e4-a70b15fd8059"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Yu Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="802" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="762" width="555" height="40" uuid="8eb79ea2-c70a-49c6-86eb-56b875236601"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Yu Gothic" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nº Ventas totales: "+$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<barChart>
+				<chart>
+					<reportElement x="0" y="-1" width="555" height="762" uuid="07c9a648-6669-4669-8654-35eb7b323f02"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{ID}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{ID}]]></categoryExpression>
+						<valueExpression><![CDATA[$V{VENTA_TOTAL}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot orientation="Horizontal"/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>
