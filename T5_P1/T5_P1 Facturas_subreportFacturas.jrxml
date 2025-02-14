@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="T5_P1 Facturas_subreportFacturas" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9bfe3f1a-4f61-4064-aab0-8179812239ce">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\David\\Documents\\GitHub\\T5_P1\\T5_P1\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="positionsCollection" class="java.util.Collection"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="176eba0a-e16e-4b02-bde0-9477f0812e04"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="2" width="100" height="20" uuid="ea11284f-c718-4389-a572-148258c8370d"/>
+				<text><![CDATA[total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="151" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="b96d970d-49d3-468e-8b21-1174ba8af139"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="20" width="802" height="111" uuid="d78f80d4-3d30-4995-951a-a03399e5ebf1"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "T5_P1 Facturas_subreportProductos.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="323" y="131" width="100" height="20" uuid="51e6a57c-9752-449c-bb59-4623a7af2589"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="256" y="131" width="67" height="20" uuid="d8ff5e94-3f8b-4122-a98b-d3d2f10a4ef7"/>
+				<text><![CDATA[Precio total:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="352" y="14" width="100" height="20" uuid="561a203f-cf77-44ba-b8da-6b17d77ba472"/>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

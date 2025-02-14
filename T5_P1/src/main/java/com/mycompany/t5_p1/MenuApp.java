@@ -5,6 +5,12 @@
 package com.mycompany.t5_p1;
 
 import com.mycompany.t5_p1.controlador.GeneradorVentasTotales;
+import com.mycompany.t5_p1.controlador.AddressJpaController;
+import com.mycompany.t5_p1.controlador.DocumentJpaController;
+import com.mycompany.t5_p1.controlador.PositionsJpaController;
+import com.mycompany.t5_p1.modelo.GeneradorInformeClientes;
+import com.mycompany.t5_p1.modelo.GeneradorInformeFacturas;
+import com.mycompany.t5_p1.modelo.GeneradorInformeProductos;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import java.awt.Color;
@@ -17,7 +23,21 @@ import java.util.List;
 public class MenuApp extends javax.swing.JFrame {
     
 
+
+    /**
+     * Creates new form MenuApp
+     */
+    private DocumentJpaController djc;
+    private AddressJpaController ajc;
+    private PositionsJpaController pjc;
+    private EntityManagerFactory emf;
+   
+     
     public MenuApp() {
+        emf = Persistence.createEntityManagerFactory("persistence");
+        djc = new DocumentJpaController(emf);
+        ajc = new AddressJpaController(emf);
+        pjc = new PositionsJpaController(emf);
         initComponents();
         setLocationRelativeTo(null);
         this.setBackground(Color.RED);
@@ -114,11 +134,12 @@ public class MenuApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmiListadoFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiListadoFacturaActionPerformed
-        // TODO add your handling code here:
+        GeneradorInformeClientes.leerInforme(ajc.findAddressEntities());
+        //GeneradorInformeFacturas.leerInforme(djc.findDocumentEntities());
+        //GeneradorInformeProductos.leerInforme(pjc.findPositionsEntities());
     }//GEN-LAST:event_jmiListadoFacturaActionPerformed
 
     private void jmiFacturasClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFacturasClienteActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jmiFacturasClienteActionPerformed
 
     private void jmiVentasTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVentasTotalesActionPerformed
