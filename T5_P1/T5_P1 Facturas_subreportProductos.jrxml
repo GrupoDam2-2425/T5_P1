@@ -4,7 +4,6 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="totalproducto" class="java.lang.Double"/>
-	<field name="name" class="java.lang.String"/>
 	<field name="quantity" class="java.lang.Integer"/>
 	<field name="price" class="java.lang.Double"/>
 	<variable name="total" class="java.lang.Double">
@@ -37,10 +36,6 @@
 	</columnHeader>
 	<detail>
 		<band height="62" splitType="Stretch">
-			<textField>
-				<reportElement x="64" y="5" width="100" height="20" uuid="7a05b4ed-9624-471a-b98f-8a4460d4d044"/>
-				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
-			</textField>
 			<textField>
 				<reportElement x="229" y="5" width="100" height="20" uuid="9811b103-8bd7-4955-89f4-fbe573f1908e"/>
 				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>

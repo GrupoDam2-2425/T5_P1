@@ -9,6 +9,7 @@
 	<parameter name="total" class="java.lang.String"/>
 	<field name="id" class="java.lang.Integer"/>
 	<field name="total" class="java.lang.Double"/>
+	<field name="positionsCollection" class="java.util.Collection"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -37,7 +38,7 @@
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="72" y="20" width="200" height="100" uuid="d78f80d4-3d30-4995-951a-a03399e5ebf1"/>
+				<reportElement x="0" y="20" width="802" height="111" uuid="d78f80d4-3d30-4995-951a-a03399e5ebf1"/>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "T5_P1 Facturas_subreportProductos.jasper"]]></subreportExpression>
 			</subreport>
 			<textField>

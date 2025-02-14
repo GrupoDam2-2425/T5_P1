@@ -131,8 +131,8 @@ public class MenuApp extends javax.swing.JFrame {
     private void jmiListadoFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiListadoFacturaActionPerformed
         // TODO add your handling code here:
         GeneradorInformeClientes.leerInforme(ajc.findAddressEntities());
-        GeneradorInformeFacturas.leerInforme(djc.findDocumentEntities());
-        GeneradorInformeProductos.leerInforme(pjc.findPositionsEntities());
+        //GeneradorInformeFacturas.leerInforme(djc.findDocumentEntities());
+        //GeneradorInformeProductos.leerInforme(pjc.findPositionsEntities());
     }//GEN-LAST:event_jmiListadoFacturaActionPerformed
 
     private void jmiFacturasClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFacturasClienteActionPerformed
