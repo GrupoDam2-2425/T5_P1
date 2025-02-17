@@ -17,12 +17,6 @@
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement x="652" y="0" width="150" height="79" uuid="af69a482-7be5-4c7a-833a-af18fe6526ff"/>
-			</image>
-			<image>
-				<reportElement x="0" y="0" width="150" height="79" uuid="8b063c27-c7fc-45e7-b750-2776b02b590d"/>
-			</image>
 			<textField>
 				<reportElement x="278" y="0" width="239" height="79" uuid="43df9a08-7e92-4a6d-8589-135911e6a06b"/>
 				<textElement>
@@ -30,6 +24,25 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="652" y="0" width="150" height="79" uuid="af69a482-7be5-4c7a-833a-af18fe6526ff"/>
+			</image>
+			<image>
+				<reportElement x="0" y="0" width="150" height="79" uuid="8b063c27-c7fc-45e7-b750-2776b02b590d"/>
+			</image>
+			<rectangle radius="10">
+				<reportElement x="181" y="16" width="294" height="50" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="185e32e4-114a-4a6c-9212-8cd4608b86a1"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="172" y="0" width="294" height="60" forecolor="#1C75BC" backcolor="#1C75BC" uuid="16531b20-330d-464d-85c7-f632a006cf04"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="172" y="0" width="294" height="60" forecolor="#FFFFFF" uuid="ff325303-020d-42ca-aa90-7371e2259497"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="28" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Listado de informes]]></text>
+			</staticText>
 		</band>
 	</title>
 	<columnHeader>
@@ -53,25 +66,32 @@
 	</columnHeader>
 	<detail>
 		<band height="65" splitType="Stretch">
-			<rectangle>
-				<reportElement x="0" y="0" width="802" height="65" backcolor="#CCCCFF" uuid="dc6db42b-cd96-4fdd-912c-e7625fa05b0d">
-					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
-				</reportElement>
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="802" height="20" backcolor="#9999FF" uuid="901d0a15-dc75-4ae1-9c91-ddd516143770"/>
 			</rectangle>
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20" uuid="32e8da71-af9e-4313-85a0-7d10ce48b32d"/>
+				<reportElement x="6" y="0" width="100" height="20" uuid="32e8da71-af9e-4313-85a0-7d10ce48b32d">
+					<printWhenExpression><![CDATA[new Boolean($P{SUBREPORT_DIR} != null)
+]]></printWhenExpression>
+				</reportElement>
 				<textFieldExpression><![CDATA[$F{firstname}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="0" width="100" height="20" uuid="971628ea-f251-4de4-987d-41d58865596b"/>
+				<reportElement x="106" y="0" width="100" height="20" uuid="971628ea-f251-4de4-987d-41d58865596b">
+					<printWhenExpression><![CDATA[new Boolean($P{SUBREPORT_DIR} != null)
+]]></printWhenExpression>
+				</reportElement>
 				<textFieldExpression><![CDATA[$F{lastname}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="0" width="100" height="20" uuid="592469fb-e524-47b0-8b08-24c9346a5116"/>
+				<reportElement x="206" y="0" width="100" height="20" uuid="592469fb-e524-47b0-8b08-24c9346a5116">
+					<printWhenExpression><![CDATA[new Boolean($P{SUBREPORT_DIR} != null)
+]]></printWhenExpression>
+				</reportElement>
 				<textFieldExpression><![CDATA[$F{street}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="0" y="20" width="802" height="45" uuid="178e347f-3f1b-4ee1-91d5-3e6cf356bfb9"/>
+				<reportElement x="0" y="20" width="802" height="45" isRemoveLineWhenBlank="true" uuid="178e347f-3f1b-4ee1-91d5-3e6cf356bfb9"/>
 				<subreportParameter name="SUBREPORT_DATA_SOURCE">
 					<subreportParameterExpression><![CDATA[$F{documentCollection}]]></subreportParameterExpression>
 				</subreportParameter>
