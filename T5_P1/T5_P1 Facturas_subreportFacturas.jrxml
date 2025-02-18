@@ -15,11 +15,6 @@
 	</background>
 	<detail>
 		<band height="118" splitType="Stretch">
-			<rectangle>
-				<reportElement x="0" y="58" width="802" height="60" backcolor="#33FFFF" uuid="12744435-c40a-4e2c-ac20-aeac8a72823c">
-					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT} % 2 != 0) ]]></printWhenExpression>
-				</reportElement>
-			</rectangle>
 			<rectangle radius="10">
 				<reportElement x="27" y="8" width="664" height="36" backcolor="#FFFFCC" uuid="a1d35542-15e2-4fc4-8fa6-c6334bc5627a"/>
 			</rectangle>

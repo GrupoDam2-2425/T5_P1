@@ -23,7 +23,7 @@
 			</staticText>
 			<staticText>
 				<reportElement x="396" y="2" width="100" height="20" uuid="2023a3e9-a0c0-49ee-9f06-bdd039d29919"/>
-				<text><![CDATA[price]]></text>
+				<text><![CDATA[Price]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

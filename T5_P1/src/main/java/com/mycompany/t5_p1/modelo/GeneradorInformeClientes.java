@@ -24,6 +24,7 @@ import net.sf.jasperreports.view.JasperViewer;
 public class GeneradorInformeClientes {
     private static InputStream logo;
     private static InputStream torre;
+    private static int id;
     public static void leerInforme(List<Address> listaClientes){
     try {
             JasperPrint print;
@@ -40,6 +41,25 @@ public class GeneradorInformeClientes {
             String report = "T5_P1 Facturas.jasper";
             print = JasperFillManager.fillReport(report, parametro,dataSource);
             JasperExportManager.exportReportToPdfFile(print, "ListaClientes.pdf");
+            JasperViewer.viewReport(print);
+        } catch (JRException ex) {
+            Logger.getLogger(GeneradorInformeClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void informePorCliente(List<Document> listafacturas, int id){
+        try {
+            JasperPrint print;
+            HashMap parametro = new HashMap();
+            parametro.put("fecha", "04/02/2025");
+            parametro.put("titulo", "Facturas por Usuario");
+            parametro.put("id", id);
+            //parametro.put("SUBREPORT_DIR", "\\T5_P1\\T5_P1\\");+
+            
+            JRDataSource dataSource = new JRBeanArrayDataSource(listafacturas.toArray());
+            String report = "T5_P1 Facturas.jasper";
+            print = JasperFillManager.fillReport(report, parametro,dataSource);
+            JasperExportManager.exportReportToPdfFile(print, "FacturaPorCliente.pdf");
             JasperViewer.viewReport(print);
         } catch (JRException ex) {
             Logger.getLogger(GeneradorInformeClientes.class.getName()).log(Level.SEVERE, null, ex);

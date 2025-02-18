@@ -140,6 +140,10 @@ public class MenuApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiListadoFacturaActionPerformed
 
     private void jmiFacturasClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFacturasClienteActionPerformed
+        
+        frmPreguntaID frm = new frmPreguntaID();
+        frm.setLocationRelativeTo(null);
+        frm.setVisible(true);
     }//GEN-LAST:event_jmiFacturasClienteActionPerformed
 
     private void jmiVentasTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVentasTotalesActionPerformed
