@@ -51,15 +51,15 @@
 				<reportElement x="0" y="0" width="802" height="23" backcolor="#FFCCCC" uuid="34a45606-b7fc-499b-b62b-e79f5f7ebc02"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="0" y="0" width="100" height="20" uuid="8808a11d-4662-4478-b321-ed347e6fd9d2"/>
+				<reportElement x="6" y="0" width="100" height="20" uuid="8808a11d-4662-4478-b321-ed347e6fd9d2"/>
 				<text><![CDATA[firstname]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="0" width="100" height="20" uuid="80201be2-a0b6-4618-9a2c-a783f3fd1dd8"/>
+				<reportElement x="106" y="0" width="100" height="20" uuid="80201be2-a0b6-4618-9a2c-a783f3fd1dd8"/>
 				<text><![CDATA[lastname]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="0" width="100" height="20" uuid="466e3c1a-1a7c-4e89-96bb-b597214cac50"/>
+				<reportElement x="206" y="0" width="100" height="20" uuid="466e3c1a-1a7c-4e89-96bb-b597214cac50"/>
 				<text><![CDATA[street]]></text>
 			</staticText>
 		</band>
@@ -71,22 +71,19 @@
 			</rectangle>
 			<textField>
 				<reportElement x="6" y="0" width="100" height="20" uuid="32e8da71-af9e-4313-85a0-7d10ce48b32d">
-					<printWhenExpression><![CDATA[new Boolean($P{SUBREPORT_DIR} != null)
-]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{SUBREPORT_DIR} != null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{firstname}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="106" y="0" width="100" height="20" uuid="971628ea-f251-4de4-987d-41d58865596b">
-					<printWhenExpression><![CDATA[new Boolean($P{SUBREPORT_DIR} != null)
-]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{SUBREPORT_DIR} != null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{lastname}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="206" y="0" width="100" height="20" uuid="592469fb-e524-47b0-8b08-24c9346a5116">
-					<printWhenExpression><![CDATA[new Boolean($P{SUBREPORT_DIR} != null)
-]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean($P{SUBREPORT_DIR} != null)]]></printWhenExpression>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{street}]]></textFieldExpression>
 			</textField>

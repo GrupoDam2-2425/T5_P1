@@ -6,6 +6,7 @@
 	<parameter name="totalproducto" class="java.lang.Double"/>
 	<field name="quantity" class="java.lang.Integer"/>
 	<field name="price" class="java.lang.Double"/>
+	<field name="product.name" class="java.lang.String"/>
 	<variable name="acumulado" class="java.lang.Float" calculation="Sum"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -14,11 +15,11 @@
 		<band height="28" splitType="Stretch">
 			<staticText>
 				<reportElement x="64" y="2" width="100" height="20" uuid="0e54004e-b6b0-4e61-bcc2-14cfc42a88f7"/>
-				<text><![CDATA[name]]></text>
+				<text><![CDATA[Name]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="229" y="2" width="100" height="20" uuid="f49f043d-5557-4350-9cea-241b8ff6aae1"/>
-				<text><![CDATA[quantity]]></text>
+				<text><![CDATA[Quantity]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="396" y="2" width="100" height="20" uuid="2023a3e9-a0c0-49ee-9f06-bdd039d29919"/>
@@ -45,9 +46,11 @@
 			</staticText>
 			<textField>
 				<reportElement x="629" y="7" width="100" height="20" uuid="2f9673f8-2803-4986-90b9-477ca9e5183d"/>
-				<textFieldExpression><![CDATA[String.format("%.2f", $F{quantity} * $F{price})
-
-]]></textFieldExpression>
+				<textFieldExpression><![CDATA[String.format("%.2f", $F{quantity} * $F{price})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="5" width="100" height="20" uuid="e21d25c1-7812-4a18-9de4-ca1c097a1bae"/>
+				<textFieldExpression><![CDATA[$F{product.name}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
