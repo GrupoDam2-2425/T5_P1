@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListadoPorClientes" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7c0b5a5a-f9a7-4051-9ad1-09332158dcea">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\David\\Documents\\GitHub\\T5_P1\\T5_P1\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id" class="java.lang.Integer"/>
+	<parameter name="nombre" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="total" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="135" y="25" width="294" height="50" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="a38dab93-0f77-4da1-8921-92b4e59e45c5"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="126" y="9" width="294" height="60" forecolor="#1C75BC" backcolor="#1C75BC" uuid="6b5d29fd-e72b-457c-8304-9875d76999fb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="126" y="9" width="294" height="60" forecolor="#FFFFFF" uuid="7f2cce5e-79a7-49d8-8871-30091b2478db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="28" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Listado de informes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="3" width="555" height="20" backcolor="#FF9999" uuid="58e447bc-cf77-4aa4-a735-e7a248d7344e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="2" width="100" height="20" uuid="f21bdd66-3a0f-4b51-bfa1-2481b440272d"/>
+				<text><![CDATA[Factura ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="2" width="100" height="20" uuid="770f94fb-677a-47d9-9acc-7303c135ca82"/>
+				<text><![CDATA[total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="236" y="3" width="100" height="20" uuid="4bf9a6d3-3c8e-4464-85fe-9a358eb6ddf5"/>
+				<textFieldExpression><![CDATA[$P{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="3" width="100" height="20" uuid="cbcfb639-3655-47c7-9686-6c1591c50385"/>
+				<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="2" width="555" height="26" backcolor="#9999FF" uuid="d40b9a3e-7232-4e75-9f1a-17759dcfd61f">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 1)]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="18" y="8" width="100" height="20" uuid="4bd8e88d-b163-43ff-8686-969ff8927884"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="126" y="8" width="100" height="20" uuid="af4e10d6-809d-45cc-a1a2-d45cbb9d30d5"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

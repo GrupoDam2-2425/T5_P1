@@ -88,7 +88,7 @@ public class frmPreguntaID extends javax.swing.JFrame {
         // TODO add your handling code here:
         frm = new frmPreguntaID();
         int id = Integer.parseInt(txtPreguntarID.getText());
-        GeneradorInformeClientes.informePorCliente(djc.findDocumentEntities(), id);
+        GeneradorInformeClientes.informePorCliente(ajc.findAddress(id));
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**

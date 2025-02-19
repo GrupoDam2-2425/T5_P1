@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListadoPorClientes_FacturasCliente" language="groovy" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="754a664d-ed14-4204-8a13-50b22f5e57b3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="total" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="43" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="63" y="0" width="664" height="36" backcolor="#FFFFCC" uuid="a31b6c30-e668-4b67-90fe-10b717222de3"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="72" y="10" width="100" height="20" uuid="1fe72689-4e26-4332-a3ea-2e6a64e05553"/>
+				<text><![CDATA[ID Factura:]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="525" y="9" width="182" height="21" backcolor="#FF6666" uuid="3c470584-77c1-4ec7-a068-29464291ca53"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="540" y="10" width="67" height="20" uuid="e7f4b18b-70b9-416d-8c67-c9eb8b67acbf"/>
+				<text><![CDATA[Precio total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="148" y="10" width="100" height="20" uuid="e36fa0be-915a-4d05-9c96-f62a1c16f672"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="607" y="10" width="100" height="20" uuid="dd7c8ca7-300a-4f43-943d-7cc9842172a1"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
